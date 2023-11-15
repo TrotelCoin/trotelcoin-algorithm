@@ -15,26 +15,17 @@ function TrotelCoinSimulator(
   this.totalTokensDistributedPerDay = [];
 
   // Method to simulate two years of activity
+  // Update the simulateTwoYears method to generate random quizzes answered per day
   this.simulateTwoYears = function () {
-    const initialQuizzesAnswered = 1;
-    const finalQuizzesAnswered = 100000;
-
-    const growthRate = Math.pow(
-      finalQuizzesAnswered / initialQuizzesAnswered,
-      1 / (2 * 365)
-    );
-
-    let currentQuizzesCount = initialQuizzesAnswered;
-
-    for (let i = 0; i < 2 * 365; i++) {
-      this.dailyQuizzesAnswered.push(Math.floor(currentQuizzesCount));
+    for (let i = 0; i < 61; i++) {
+      const quizzesAnsweredToday = Math.floor(Math.random() * 1000) + 1; // Generate a random number between 1 and 1000
+      this.dailyQuizzesAnswered.push(quizzesAnsweredToday);
 
       const tokensToDistribute =
-        this.calculateTokensToDistribute(currentQuizzesCount);
+        this.calculateTokensToDistribute(quizzesAnsweredToday);
       this.rewardHistory.push(tokensToDistribute);
 
       this.daysElapsed++;
-      currentQuizzesCount *= growthRate;
     }
 
     this.calculateTotalTokensDistributedPerDay();
@@ -128,7 +119,9 @@ function TrotelCoinSimulator(
 
   // Method to visualize total tokens distributed per day evolution
   this.visualizeTotalTokensDistributed = function (xAxisData) {
-    const chartElement = document.getElementById("totalTokensDistributedContainer");
+    const chartElement = document.getElementById(
+      "totalTokensDistributedContainer"
+    );
 
     const chart = echarts.init(chartElement);
 

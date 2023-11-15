@@ -130,17 +130,14 @@ function TrotelCoinSimulator(totalSupply, initialRate, inflationLimit, maximumAn
   this.totalTokensDistributedPerDay = [];
 
   // Method to simulate two years of activity
+  // Update the simulateTwoYears method to generate random quizzes answered per day
   this.simulateTwoYears = function () {
-    var initialQuizzesAnswered = 1;
-    var finalQuizzesAnswered = 100000;
-    var growthRate = Math.pow(finalQuizzesAnswered / initialQuizzesAnswered, 1 / (2 * 365));
-    var currentQuizzesCount = initialQuizzesAnswered;
-    for (var i = 0; i < 2 * 365; i++) {
-      this.dailyQuizzesAnswered.push(Math.floor(currentQuizzesCount));
-      var tokensToDistribute = this.calculateTokensToDistribute(currentQuizzesCount);
+    for (var i = 0; i < 61; i++) {
+      var quizzesAnsweredToday = Math.floor(Math.random() * 1000) + 1; // Generate a random number between 1 and 1000
+      this.dailyQuizzesAnswered.push(quizzesAnsweredToday);
+      var tokensToDistribute = this.calculateTokensToDistribute(quizzesAnsweredToday);
       this.rewardHistory.push(tokensToDistribute);
       this.daysElapsed++;
-      currentQuizzesCount *= growthRate;
     }
     this.calculateTotalTokensDistributedPerDay();
   };
@@ -296,7 +293,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65247" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62890" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
