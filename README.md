@@ -1,9 +1,9 @@
 # trotelcoin-algorithm
 
-This algorithm simulates a reward distribution system based on answering quizzes. Here's a breakdown of the steps:
+The TrotelCoin's algorithm simulates a reward distribution system based on answering quizzes. Here's a breakdown of the steps:
 
 **Function to Simulate Reward Distribution:** 
-The `calculate_rewards` function calculates the reward for answering quizzes based on the number of remaining tokens. It generates a random reward within a certain range determined by the number of remaining tokens.
+The `calculate_rewards` function calculates the reward for answering quizzes based on the number of remaining tokens to manage inflation. It generates a random reward within a certain range determined by the number of remaining tokens.
 
 **Token Distribution Simulation:**
 - `maximum_annual_distribution` represents the maximum annual distribution of tokens.
