@@ -21,7 +21,7 @@ The `calculate_rewards` function calculates the reward for answering quizzes bas
 **Plotting the graph:**
 - The algorithm plots a graph that visualizes the simulated rewards per quizzes answered. It shows the relationship between the number of quizzes answered and the rewards obtained in TrotelCoin currency.
 
-- ## License
+## License
 
 This TrotelCoin repository is licensed under the [MIT License].
 
